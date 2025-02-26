@@ -14,7 +14,7 @@ const ClimaApp = () => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        const limitedForecast = data.days.slice(0, 7); // Limitar a solo 7 días
+        const limitedForecast = data.days.slice(0, 5); // Limitar a solo 7 días
         setForecast(limitedForecast);
         console.log('Weather data:', limitedForecast);
       } catch (error) {
@@ -40,7 +40,7 @@ const ClimaApp = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Pronóstico del clima (7 días)</Text>
+      <Text style={styles.title}>Pronóstico del clima</Text>
       {loading ? (
         <ActivityIndicator size="large" color="#00aaff" />
       ) : (
